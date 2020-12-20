@@ -1,0 +1,159 @@
+<h1>
+    Bookings
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        (click)="open(content)">
+        Edit Bookings
+    </button>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Edit Bookings</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="alert alert-danger">
+                    <p>Email is required</p>
+                    <p>Booking Date is required</p>
+                    <p>Pickup Date is required</p>
+                </div>
+                <div class="form-group">
+                    <label for="id">Id(Put 0 for addition)</label>
+                    <div class="input-group">
+                        <input id="id" class="form-control" [formControl]='id'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <input id="email" class="form-control" [formControl]='email' placeholder="email@address.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookingDate">Booking Date</label>
+                    <div class="input-group">
+                        <input id="bookingDate" [formControl]='bookingDate' class="form-control"
+                            placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookingTime">Booking Time</label>
+                    <div class="input-group">
+                        <input id="bookingTime" [formControl]='bookingTime' class="form-control"
+                            placeholder="00:00-23:59">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Pickup Address</label>
+                    <div class="input-group">
+                        <input id="address" class="form-control" [formControl]='pickupAddress'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="landmark">Landmark</label>
+                    <div class="input-group">
+                        <input id="landmark" class="form-control" [formControl]='landmark'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pickupDate">Pickup Date</label>
+                    <div class="input-group">
+                        <input id="pickupDate" [formControl]='pickupDate' class="form-control" placeholder="yyyy-mm-dd"
+                            name="pd" ngbDatepicker #pd="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="pd.toggle()"
+                                type="button"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pickupTime">Pickup Time</label>
+                    <div class="input-group">
+                        <input id="pickupTime" [formControl]='pickupTime' class="form-control"
+                            placeholder="00:00-23:59">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact Number</label>
+                    <div class="input-group">
+                        <input id="contact" class="form-control" [formControl]='contactNo'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <div class="input-group">
+                        <input id="status" class="form-control" [formControl]='status'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="from">FromPlace Id</label>
+                    <div class="input-group">
+                        <input id="from" class="form-control" [formControl]='fromPlace'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="to">ToPlace Id</label>
+                    <div class="input-group">
+                        <input id="to" class="form-control" [formControl]='toPlace'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cab">CabType Id</label>
+                    <div class="input-group">
+                        <input id="cab" class="form-control" [formControl]='cabTypeId'>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+    </ng-template>
+</h1>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>BookDate</th>
+            <th>BookTime</th>
+            <th>PickupAddress</th>
+            <th>Landmark</th>
+            <th>PickupDate</th>
+            <th>PickupTime</th>
+            <th>ContactNo</th>
+            <th>Status</th>
+            <th>FromPlaceId</th>
+            <th>ToPlaceId</th>
+            <th>CabTypeId</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let booking of bookings">
+            <td>{{booking.id}}</td>
+            <td>{{booking.email}}</td>
+            <td>{{booking.bookingDate | date}}</td>
+            <td>{{booking.bookingTime}}</td>
+            <td>{{booking.pickupAddress}}</td>
+            <td>{{booking.landmark}}</td>
+            <td>{{booking.pickupDate | date}}</td>
+            <td>{{booking.pickupTime}}</td>
+            <td>{{booking.contactNo}}</td>
+            <td>{{booking.status}}</td>
+            <td>{{booking.fromPlace}}</td>
+            <td>{{booking.toPlace}}</td>
+            <td>{{booking.cabTypeId}}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                    (click)="deleteBooking(booking.id)">
+                    Remove
+                </button>
+            </td>
+        </tr>
+
+    </table>
+</div>

@@ -1,0 +1,38 @@
+<h1>Booking Details by {{cabBookings.cabTypeName}}</h1>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Email</th>
+            <th>BookDate</th>
+            <th>BookTime</th>
+            <th>PickupAddress</th>
+            <th>Landmark</th>
+            <th>PickupDate</th>
+            <th>PickupTime</th>
+            <th>Comp_Time</th>
+            <th>ContactNo</th>
+            <th>Status</th>
+            <th>Charge</th>
+            <th>Feedback</th>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+        <tr *ngFor="let booking of bookings">
+            <td>{{booking.email}}</td>
+            <td>{{booking.bookingDate | date}}</td>
+            <td>{{booking.bookingTime}}</td>
+            <td>{{booking.pickupAddress}}</td>
+            <td>{{booking.landmark}}</td>
+            <td>{{booking.pickupDate | date}}</td>
+            <td>{{booking.pickupTime}}</td>
+            <td>{{booking.comp_time}}</td>
+            <td>{{booking.contactNo}}</td>
+            <td>{{booking.status}}</td>
+            <td>{{booking.charge}}</td>
+            <td>{{booking.feedback}}</td>
+            <td *ngFor="let place of booking.places">{{place.fromPlace}}</td>
+            <td *ngFor="let place of booking.places">{{place.toPlace}}</td>
+        </tr>
+    
+    </table>
+</div>

@@ -1,0 +1,48 @@
+<h1>Places
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="open(content)">
+        Edit Places
+      </button>
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Edit Places</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="id">Id(Put 0 for addition)</label>
+              <div class="input-group">
+                <input id="id" class="form-control" [formControl]='placeId'>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Place Name</label>
+                <div class="input-group">
+                  <input id="name" class="form-control" [formControl]='placeName'>
+                </div>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template>
+</h1>
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let place of places">
+        <td>{{place.placeId}}</td>
+        <td>{{place.placeName}}</td>
+        <td>
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" (click)="deletePlace(place.placeId)">
+                Remove
+            </button>
+        </td>
+    </tr>
+</table>
