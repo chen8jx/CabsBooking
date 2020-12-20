@@ -13,7 +13,6 @@ namespace CabsBooking.Core.Models.Request
         [StringLength(50)]
         public string Email { get; set; }
         public DateTime? BookingDate { get; set; }
-        [RegularExpression("^[0-2][0-3]:[0-5][0-9]$")]
         public string BookingTime { get; set; }
         public int? FromPlace { get; set; }
         //public Places FromPlaces { get; set; }
@@ -22,14 +21,12 @@ namespace CabsBooking.Core.Models.Request
         public string PickupAddress { get; set; }
         public string Landmark { get; set; }
         public DateTime? PickupDate { get; set; }
-        [RegularExpression("^[0-2][0-3]:[0-5][0-9]$")]
         public string PickupTime { get; set; }
         public int? CabTypeId { get; set; }
         //public CabTypes CabTypes { get; set; }
         public string ContactNo { get; set; }
         //[Required]
         public string Status { get; set; }
-        [RegularExpression("^[0-2][0-3]:[0-5][0-9]$")]
         public string Comp_Time { get; set; }
         //[Range(0, 5000000000)]
         //[RegularExpression("^(\\d{1,18})(.\\d{1})?$")]

@@ -9,7 +9,7 @@ export interface History{
     pickupTime:string,
     contactNo:string,
     status:string,
-    comp_time:string,
+    comp_Time:string,
     charge?:number,
     feedback:string,
     fromPlace:number,

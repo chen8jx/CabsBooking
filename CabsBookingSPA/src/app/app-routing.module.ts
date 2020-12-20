@@ -8,6 +8,7 @@ import { CabBookingsComponent } from './shared/component/cab-bookings/cab-bookin
 
 const routes: Routes = [
   {path:"",component:CabsComponent},
+  {path:"CabTypes",component:CabsComponent},
   {path:"CabTypes/:cabId",component:CabBookingsComponent},
   {path:"Places",component:PlacesComponent},
   {path:"Bookings",component:BookingsComponent},
